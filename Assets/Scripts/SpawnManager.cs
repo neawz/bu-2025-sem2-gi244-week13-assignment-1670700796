@@ -1,11 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
     public Transform spawnPoint;
-    public GameObject obstaclePrefab;
+    // public GameObject obstaclePrefab;
 
-    void Start()
+    public void BeginSpawning()
     {
         InvokeRepeating(nameof(Spawn), 0, 2f);
     }
@@ -20,10 +21,16 @@ public class SpawnManager : MonoBehaviour
             return;
         }
 
-        Instantiate(
-            obstaclePrefab,
-            spawnPoint.position,
-            obstaclePrefab.transform.rotation
-        );
+        int randomType = Random.Range(0, 3);
+        var obstacle = ObstacleObjectPool.instance.Acquire(randomType);
+        obstacle.transform.SetPositionAndRotation(spawnPoint.position, Quaternion.identity);
+
+        StartCoroutine(ReleaseAfterTime(obstacle, randomType, 5f));
+    }
+
+    private IEnumerator ReleaseAfterTime(GameObject obstacle, int obstacleType, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ObstacleObjectPool.instance.Release(obstacle, obstacleType);
     }
 }

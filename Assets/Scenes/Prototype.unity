@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1183671265}
-  obstaclePrefab: {fileID: 8872066452297259089, guid: ea64f003a1d29fc4bac7b8e72247c4ad, type: 3}
 --- !u!4 &132895512
 Transform:
   m_ObjectHideFlags: 0
@@ -296,6 +295,7 @@ MonoBehaviour:
   obstacleBarrierPrefab: {fileID: 181666, guid: ee7d0c4ddd804dd4e95f705d43c9135e, type: 3}
   obstacleStoneWallPrefab: {fileID: 1574251093279545299, guid: aa7a79e53bee7d64e9b1fb9894a773a5, type: 3}
   poolSize: 10
+  initialPoolSize: 5
 --- !u!4 &255484002
 Transform:
   m_ObjectHideFlags: 0
@@ -879,6 +879,10 @@ PrefabInstance:
     - target: {fileID: 8872066452297259089, guid: ea64f003a1d29fc4bac7b8e72247c4ad, type: 3}
       propertyPath: m_Name
       value: Obstacle-01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872066452297259089, guid: ea64f003a1d29fc4bac7b8e72247c4ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
