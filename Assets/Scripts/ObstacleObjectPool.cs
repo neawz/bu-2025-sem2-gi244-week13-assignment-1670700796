@@ -77,15 +77,4 @@ public class ObstacleObjectPool : MonoBehaviour
             _ => null
         };
     }
-
-    private GameObject GetPrefab(int obstacleType)
-    {
-        return obstacleType switch
-        {
-            0 => obstacleBarrelPrefab,
-            1 => obstacleBarrierPrefab,
-            2 => obstacleStoneWallPrefab,
-            _ => null
-        };
-    }
 }
