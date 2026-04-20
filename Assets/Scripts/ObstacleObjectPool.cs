@@ -56,12 +56,6 @@ public class ObstacleObjectPool : MonoBehaviour
 
     public GameObject Acquire(int obstacleType)
     {
-        if (GetPool(obstacleType).Count == 0)
-        {
-            var tempGO = Instantiate(GetPrefab(obstacleType));
-            tempGO.SetActive(false);
-            GetPool(obstacleType).Add(tempGO);
-        }
         var go = GetPool(obstacleType)[0];
         GetPool(obstacleType).RemoveAt(0);
         go.SetActive(true);
