@@ -9,7 +9,6 @@ public class ObstacleObjectPool : MonoBehaviour
     public GameObject obstacleStoneWallPrefab;
     public int poolSize = 10;
 
-    [SerializeField] private int initialPoolSize = 15;
     private List<GameObject> obstacleBarrelPool;
     private List<GameObject> obstacleBarrierPool;
     private List<GameObject> obstacleStoneWallPool;
@@ -33,7 +32,7 @@ public class ObstacleObjectPool : MonoBehaviour
 
     private IEnumerator Start()
     {
-        for (int i = 0; i < initialPoolSize; i++)
+        for (int i = 0; i < poolSize; i++)
         {
             CreateObstacle(obstacleBarrelPrefab, obstacleBarrelPool);
             CreateObstacle(obstacleBarrierPrefab, obstacleBarrierPool);
